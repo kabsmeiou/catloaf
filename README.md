@@ -68,7 +68,7 @@ Before running the Docker image, you can train the model using the `train.py` sc
 python train.py
 ```
 
-This will train the model on your dataset and save the trained model to a file (e.g., `final_model.pt`).
+This will train the model on the dataset and save the trained model to a file (e.g., `final_model.pt`).
 
 Once the model is trained, you can run the Docker image as described earlier to serve the trained model via FastAPI.
 
@@ -128,7 +128,7 @@ kubectl get nodes
 
 ### 2. Build and Load the Docker Image
 
-Your image `catloaf-image` must be available to Minikube's Docker daemon.
+The image `catloaf-image` must be available to Minikube's Docker daemon.
 
 **Step 1:** Point your shell to Minikube’s Docker daemon
 
@@ -136,7 +136,7 @@ Your image `catloaf-image` must be available to Minikube's Docker daemon.
 eval $(minikube docker-env)
 ```
 
-**Step 2:** Build the Docker image (from your project directory)
+**Step 2:** Build the Docker image (from the project directory)
 
 ```bash
 docker build -t catloaf-image .
@@ -170,6 +170,10 @@ kubectl get services
 
 ```bash
 minikube service catloaf-service --url
+```
+Once you have the URL, you can use it in the test_kube.py file. Replace the URL in the script with the URL you received from the minikube service command. Then, run the test_kube.py script as follows:
+```
+python3 test_kube.py
 ```
 
 ### 5. Clean Up
