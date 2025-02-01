@@ -13,6 +13,7 @@ This project uses the pre-trained **Inception V3** CNN model to classify images 
 4. [Training the Model with `train.py`](#training-the-model-with-trainpy)
 5. [Building and Running the Docker Container](#building-and-running-the-docker-container)
 6. [How to Use `test.py`](#how-to-use-testpy)
+7. [Minikube Setup and Kubernetes Deployment](#minikube-setup-and-kubernetes-deployment)
 
 ## Description
 
