@@ -1,6 +1,6 @@
 import requests
 
-url = "http://127.0.0.1:8000/predict"
+url = "http://192.168.49.2:31023/predict"
 image_path = "custom_test_img/cat_loaf_script.jpg"
 
 with open(image_path, "rb") as file:

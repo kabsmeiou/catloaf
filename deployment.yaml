@@ -1,0 +1,34 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catloaf-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catloaf
+  template:
+    metadata:
+      labels:
+        app: catloaf
+    spec:
+      containers:
+      - name: catloaf-container
+        image: catloaf-image  # Your Docker image
+        imagePullPolicy: Never  # Use local image (no registry)
+        ports:
+        - containerPort: 8000  # Port your FastAPI app listens on
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catloaf-service
+spec:
+  selector:
+    app: catloaf
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
+  type: NodePort  # Expose the service externally
